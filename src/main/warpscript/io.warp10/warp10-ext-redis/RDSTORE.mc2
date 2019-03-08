@@ -1,0 +1,50 @@
+//
+//   Copyright 2019  SenX S.A.S.
+//
+//   Licensed under the Apache License, Version 2.0 (the "License");
+//   you may not use this file except in compliance with the License.
+//   You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+//   Unless required by applicable law or agreed to in writing, software
+//   distributed under the License is distributed on an "AS IS" BASIS,
+//   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+//   See the License for the specific language governing permissions and
+//   limitations under the License.
+//
+
+{
+    'name' 'RDSTORE'
+    'desc' 
+    <'
+Stored data in a [Redis](https://redis.io/) instance.
+    '>
+    'sig' [
+      [ [ 'pairs:LIST<LIST>' 'url:STRING' ] [] ]
+    ]
+    'params' {
+      'pairs' 'List of `[ key value ]` pairs, `key` being a STRING and `value` either a STRING or byte array. STRING values will be converted to byte arrays using UTF-8.'
+      'url' '[Redis URL](https://github.com/lettuce-io/lettuce-core/wiki/Redis-URI-and-connection-details) specifying which Redis instance to contact.'
+    }
+    'examples' [
+      <'
+'redis://localhost:6379/'
+[
+  [ 'foo' 'foo:value' ]
+  [ 'bar' 'bar:value' ]
+]
+RDSTORE
+      '>
+    ]
+    'related' [ 'RDLOAD' ]
+    'ext' 'io.warp10.script.ext.redis.RedisWarpScriptExtension'
+} 'info' STORE
+
+<%
+  !$info INFO
+  SAVE 'context' STORE
+    <% 'RDSTORE' EVAL %> <% %> <% %> TRY    
+  $context RESTORE
+%>
+'macro' STORE
