@@ -1,0 +1,13 @@
+{
+  "type": "ext",
+  "group": "io.warp10",
+  "artifact": "warp10-ext-redis",
+  "version": "0.0.0",
+  "description": "WarpScrip™ Redis Extension",
+  "author": "SenX",
+  "email": "contact@senx.io",
+  "license": "Apache-2.0",
+  "git": "https://github.com/senx/warp10-ext-redis",
+  "tags": [ "WarpScript", "Warp 10", "Redis" ],
+  "repoUrl": "https://dl.bintray.com/senx/maven/"
+}
