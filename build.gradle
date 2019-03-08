@@ -109,6 +109,7 @@ dependencies {
   // Insert your dependencies here
   //
   //compile group: 'GROUP', name: 'NAME', version: 'VERSION'
+  compile 'redis.clients:jedis:3.0.1'
 
   testCompile'io.warp10:warpscript:+'
   testImplementation 'junit:junit:4.12'
