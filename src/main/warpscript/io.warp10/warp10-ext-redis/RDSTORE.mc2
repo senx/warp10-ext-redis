@@ -48,3 +48,4 @@ RDSTORE
   $context RESTORE
 %>
 'macro' STORE
+$macro
